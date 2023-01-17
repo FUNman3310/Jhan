@@ -1,0 +1,50 @@
+﻿@model List<Slider>
+@{
+    int count = 0; 
+}
+
+<div class="container-fluid" style="display:flex; justify-content:space-between; align-items:center">
+            <h1>Slider:</h1>
+            <a asp-action="create" asp-controller="slider" class="btn btn-success">Create</a>
+        </div>
+
+<table class="table">
+  <thead>
+    <tr>
+            <th scope="col">#</th>
+            <th scope="col">SubTitle</th>
+            <th scope="col">Title</th>
+            <th scope="col">RedUrlText</th>
+            <th scope="col">Image</th>
+            <th scope="col">Actions</th>
+            
+    </tr>
+  </thead>
+  <tbody>
+
+      @foreach (Slider slider in Model)
+        {
+            count++;
+
+            <tr>
+                <th scope="row">@count</th>
+                <td>@slider.SubTitle</td>
+                <td>@slider.Title</td>
+                <td>@slider.RedirectUrlText</td>
+                
+                
+                <td>
+                    <img style="width:150px" src="..\Uploads\Slider\@slider.Image">
+                </td>
+                <td>
+                    <a asp-action="update" asp-controller="slider" asp-area="manage" asp-route-id="@slider.Id" class="btn btn-info">Update</a>
+                    <a asp-action="delete" asp-controller="slider" asp-area="manage" asp-route-id="@slider.Id" class="btn btn-danger item-delete">Delete</a>
+
+                </td>
+
+             </tr>
+       }
+
+  
+  </tbody>
+</table>
