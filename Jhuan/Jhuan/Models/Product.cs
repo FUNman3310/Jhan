@@ -17,6 +17,19 @@ namespace Jhuan.Models
         [NotMapped]
         public IFormFile ImageFile { get; set; }
 
+        public int CategoryId { get; set; }
+
+        public int SizeId { get; set; }
+
+        public int ColorId { get; set; }
+
+        public Category category { get; set; }
+
+        public Color color { get; set; }
+
+        public Size size { get; set; }
+
+
 
     }
 }

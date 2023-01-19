@@ -52,7 +52,7 @@ namespace Jhuan.Areas.Manage.Controllers
             if (slider == null) return View("Error");
             
 
-            return View();
+            return View(slider);
         }
         [HttpPost]
         public IActionResult Update(int id, Slider slider)
@@ -64,11 +64,9 @@ namespace Jhuan.Areas.Manage.Controllers
             if (slider.ImageFile != null)
             {
                 string name = FileManager.SaveFile(_env.WebRootPath, "uploads/slider", slider.ImageFile);
-
                 existSlider.Image = name;
             }
-
-            existSlider.Image = slider.Image;
+      
             existSlider.Title= slider.Title;
             existSlider.SubTitle= slider.SubTitle;
             existSlider.RedirectUrl=slider.RedirectUrl;
@@ -76,9 +74,6 @@ namespace Jhuan.Areas.Manage.Controllers
             existSlider.Description=slider.Description;
 
             _jhuanContext.SaveChanges();
-
-
-
 
             return RedirectToAction("index");
         }
@@ -93,7 +88,7 @@ namespace Jhuan.Areas.Manage.Controllers
 
 
 
-            return Ok();
+            return RedirectToAction("index");
         }
         
 

@@ -1,0 +1,45 @@
+﻿@model List<BrandLogo>
+@{
+    int count = 0;
+}
+
+<div class="container-fluid" style="display:flex; justify-content:space-between; align-items:center">
+    <h1>Logo:</h1>
+    <a asp-action="create" asp-controller="brandlogo" class="btn btn-success">Create</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (BrandLogo brandLogo in Model)
+        {
+            count++;
+
+            <tr>
+                <th scope="row">@count</th>
+                
+
+
+                <td>
+                    <img style="width:150px" src="..\Uploads\BrandLogo\@brandLogo.Image">
+                </td>
+                <td>
+                    <a asp-action="update" asp-controller="slider" asp-area="manage" asp-route-id="@brandLogo.Id" class="btn btn-info">Update</a>
+                    <a asp-action="delete" asp-controller="slider" asp-area="manage" asp-route-id="@brandLogo.Id" class="btn btn-danger item-delete">Delete</a>
+
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>

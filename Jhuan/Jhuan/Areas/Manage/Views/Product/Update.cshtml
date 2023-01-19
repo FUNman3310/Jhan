@@ -1,1 +1,66 @@
 ﻿
+@model Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Craete a Product</h1>
+
+<div class="container">
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+  <div class="row">
+      <div class="mb-3 col-md-3">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input  class="form-control" asp-for="Name" placeholder="Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+      </div>
+      <div class="mb-3 col-md-3">
+        <label asp-for="SalePrice" class="form-label">SalePrice</label>
+        <input class="form-control" asp-for="SalePrice" placeholder="SalePrice">
+         <span asp-validation-for="SalePrice" class="text-danger"></span>
+      </div>
+      <div class="mb-3 col-md-3">
+        <label asp-for="CostPrice" class="form-label">CostPrice</label>
+        <input  class="form-control" asp-for="CostPrice" placeholder="CostPrice">
+        <span asp-validation-for="CostPrice" class="text-danger"></span>
+      </div>
+      <div class="mb-3 col-md-2">
+          <label asp-for="DiscountPrice" class="form-label">DiscountPrice</label>
+          <input  class="form-control" asp-for="DiscountPrice" placeholder="DiscountPrice">
+          <span asp-validation-for="DiscountPrice" class="text-danger"></span>
+          </div>
+  </div class="row align-items-center">
+  
+
+      
+
+      <div style="margin-bottom:20px">
+          <label asp-for="ImageFile" class="form-label">ImageFile</label>
+          <input type="file" class="form-control" asp-for="ImageFile" placeholder="ImageFile">
+          <span asp-validation-for="ImageFile" class="text-danger"></span>
+      </div>
+
+      <div class="mb-3 col-md-2">
+          <label asp-for="ColorId" class="form-lable">Color</label>
+          <select class="form-select" asp-for="ColorId" asp-items="@(new SelectList(ViewBag.Color,"Id","Name"))">          
+          </select>
+      </div>
+      <div class="mb-3 col-md-2">
+          <label asp-for="SizeId" class="form-lable">Size</label>
+          <select class="form-select" asp-for="SizeId" asp-items="@(new SelectList(ViewBag.Size,"Id","Name"))">          
+          </select>
+      </div>
+      <div class="mb-3 col-md-2">
+          <label asp-for="CategoryId" class="form-lable">Category</label>
+          <select class="form-select" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Category,"Id","Name"))">          
+          </select>
+      </div>
+
+
+      <div style="display:flex; justify-content:center; align-content:center ">
+           <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+</form>
+</div>
+

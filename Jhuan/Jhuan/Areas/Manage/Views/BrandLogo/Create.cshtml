@@ -1,0 +1,29 @@
+﻿
+@model Slider
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Craete a Logo</h1>
+
+<div class="container">
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+  
+
+     
+
+      <div style="margin-bottom:20px">
+          <label asp-for="ImageFile" class="form-label">ImageFile</label>
+          <input type="file" class="form-control" asp-for="ImageFile" placeholder="ImageFile">
+          <span asp-validation-for="ImageFile" class="text-danger"></span>
+      </div>
+
+
+
+      <div style="display:flex; justify-content:center; align-content:center ">
+           <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+</form>
+</div>
+
